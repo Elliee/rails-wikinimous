@@ -1,7 +1,19 @@
-<h1><%= @article.title %></h1>
+<h1>
+  <%= @article.title %>
+  <%= link_to article_path(@article), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fa fa-trash-o"></i>
+    <% end %>
+</h1>
 
-<%= @article.content %>
 
-<%= link_to 'Edit Article', edit_article_path(@article) %>
+<hr>
 
-<%= link_to 'All Articles', articles_path %>
+<div class="text-center">
+  <p class="article"><%= @article.content  %></p>
+</div>
+
+
+<div class="text-center">
+  <button class="btn"><%= link_to 'Edit Article', edit_article_path(@article) %></button>
+  <button class="btn"><%= link_to 'All Articles', articles_path %></button>
+</div>
